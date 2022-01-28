@@ -1,0 +1,63 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/codex-team/codex-bot-core
+  pullPolicy: Always
+  tag: "stage"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: "core-bot"
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 1337
+
+url: "https://d0b2-92-100-146-207.ngrok.io/"
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+resources: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+mongodb:
+  auth:
+    enabled: false
+    #rootPassword: "qwe"
+
+rabbitmq:
+  auth:
+    username: "user"
+    password: "user"
+    erlangCookie: "hg8+qOWd2/fv0f/fP4Jeghec3YGNLJqNOdW4MRx8"

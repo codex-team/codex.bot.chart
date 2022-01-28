@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-configmap
+data:
+  URL: {{ .Values.url }}
+  SERVER_HOST: "0.0.0.0"
+  SERVER_PORT: "1337"
+  RABBITMQ_URL: "amqp://user:user@k8s-codex-bot-rabbitmq/"
+  DATABASE_NAME: default
+  DATABASE_HOST: k8s-codex-bot-mongodb
+  DATABASE_PORT: "27017"
+  TELEGRAM_CALLBACK_ROUTE: /telegram/callback
+  TELEGRAM_BOT_NAME: "@codexk8sbot"
+  TELEGRAM_API_TOKEN: "5141410269:AAENQGkEDu0V0DRoKbA1y4CdODuWS9wdk0o"
+  TELEGRAM_API_URL: "https://api.telegram.org/bot"
+  SLACK_BOT_NAME: ""
+  SLACK_CLIENT_ID: ""
+  SLACK_CLIENT_SECRET: ""
