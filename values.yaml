@@ -24,7 +24,7 @@ service:
   type: ClusterIP
   port: 1337
 
-url: "https://d0b2-92-100-146-207.ngrok.io/"
+url: "https://4395-92-100-146-207.ngrok.io"
 
 ingress:
   enabled: false
