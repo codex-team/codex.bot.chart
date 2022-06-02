@@ -25,9 +25,9 @@ appVersion: "1.16.0"
 
 dependencies:
   - name: mongodb
-    version: 11.0.x
+    version: 12.1.x
     repository: https://charts.bitnami.com/bitnami
   - name: rabbitmq
-    version: 8.27.x
+    version: 10.1.x
     repository: https://charts.bitnami.com/bitnami
     
