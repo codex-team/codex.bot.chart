@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "k8s-codex-bot.fullname" . }}
+  name: {{ include "codex-bot.fullname" . }}
   labels:
-    {{- include "k8s-codex-bot.labels" . | nindent 4 }}
+    {{- include "codex-bot.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "k8s-codex-bot.selectorLabels" . | nindent 4 }}
+    {{- include "codex-bot.selectorLabels" . | nindent 4 }}

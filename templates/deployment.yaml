@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "k8s-codex-bot.fullname" . }}
+  name: {{ include "codex-bot.fullname" . }}
   labels:
-    {{- include "k8s-codex-bot.labels" . | nindent 4 }}
+    {{- include "codex-bot.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "k8s-codex-bot.selectorLabels" . | nindent 6 }}
+      {{- include "codex-bot.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "k8s-codex-bot.selectorLabels" . | nindent 8 }}
+        {{- include "codex-bot.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "k8s-codex-bot.serviceAccountName" . }}
+      serviceAccountName: {{ include "codex-bot.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -38,8 +38,8 @@ spec:
               containerPort: 1337
               protocol: TCP
           envFrom:
-          - configMapRef:
-              name: env-configmap
+            - secretRef:
+                name: codex-bot-secret
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
