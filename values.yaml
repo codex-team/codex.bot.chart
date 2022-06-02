@@ -56,10 +56,12 @@ tolerations: []
 affinity: {}
 
 mongodb:
+  enabled: true
   auth:
-    existingSecret: codex-bot
+    existingSecret: codex-bot-secret
 
 rabbitmq:
+  enabled: true
   auth:
    existingPasswordSecret: codex-bot-secret
    existingErlangSecret: codex-bot-secret
