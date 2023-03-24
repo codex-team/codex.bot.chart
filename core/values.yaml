@@ -57,11 +57,13 @@ affinity: {}
 
 mongodb:
   enabled: true
+  fullnameOverride: mongodb
   auth:
     existingSecret: codex-bot-secret
 
 rabbitmq:
   enabled: true
+  fullnameOverride: rabbitmq
   auth:
    existingPasswordSecret: codex-bot-secret
    existingErlangSecret: codex-bot-secret
