@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: 1.16.0
+appVersion: 1.17.2
 description: A Helm chart for Kubernetes
 name: notify
 type: application
-version: 0.4.0
+version: 0.4.1
