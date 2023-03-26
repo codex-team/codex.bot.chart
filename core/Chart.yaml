@@ -2,7 +2,7 @@ apiVersion: v2
 name: core
 description: A Helm chart for codex.bot core
 type: application
-version: 0.2.6
+version: 0.2.7
 appVersion: 0.0.1
 
 dependencies:
